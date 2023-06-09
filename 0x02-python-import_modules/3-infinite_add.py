@@ -2,6 +2,9 @@
 import sys
 
 if __name__ == "__main__":
-    args = sys.argv[1:]  # Get all command-line arguments
-    total = sum(int(arg) for arg in args)
+    n = len(sys.argv)
+    total = 0
+    for i in range(1, n):
+        total += int(sys.argv[i])
     print(total)
+
