@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-import printing_easy
+__builtins__.__dict__['chr'](35).__add__('pythoniscool\n')
+
