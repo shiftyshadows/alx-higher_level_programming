@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 
 /**
  * is_palindrome - Function that checks if a singly linked list is a palindrome
@@ -30,7 +30,7 @@ int is_palindrome(listint_t **head)
 		slow = slow->next; }
 	while (slow != NULL)
 	{/* Compare the first half and second half of the list */
-		if ((*head)->data != slow->data)
+		if ((*head)->n != slow->n)
 		{
 			return (0); } /* Not a palindrome */
 		*head = (*head)->next;
