@@ -3,8 +3,8 @@ import random
 number = random.randint(-10000, 10000)
 if number < 0:
     dig = number * -1
-    dig = num % 10
-    dig = num * -1
+    dig = dig % 10
+    dig = dig * -1
 else:
     dig = number % 10
 print("Last digit of {}".format(number), end=' ')
