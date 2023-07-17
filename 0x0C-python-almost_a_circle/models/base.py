@@ -27,3 +27,10 @@ class Base:
         with open(filename, 'w') as file:
             json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
             file.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
