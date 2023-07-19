@@ -14,4 +14,4 @@ def safe_print_list_integers(my_list=[], x=0):
         return 0
     finally:
         print()
-        return min(count, len(my_list))
+        return count
