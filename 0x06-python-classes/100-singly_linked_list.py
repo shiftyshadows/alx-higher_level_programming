@@ -42,7 +42,10 @@ class Node:
 
 
 class SinglyLinkedList:
+    """ Defines a singly linked list. """
+
     def __init__(self):
+        """ Sets the necessary attributes for the SinglyLinkedList object. """
         self.head = None
 
     def sorted_insert(self, value):
