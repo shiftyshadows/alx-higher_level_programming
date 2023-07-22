@@ -7,7 +7,6 @@ class Square:
         Attributes:
             __size(int): size of side of square
     """
-
     def __init__(self, size=0, position=(0, 0)):
         """ Initializes a Square
             Args:
@@ -18,17 +17,46 @@ class Square:
         self.size = size
         self.position = position
 
+    def __str__(self):
+        """Sets the print behavior of the Square object."""
+        square_str = ""
+
+        if self.__size > 0:
+            for y in range(self.__position[1]):
+                square_str += '\n'
+            for x in range(self.__size):
+                square_str += ' ' * self.__position[0]
+                square_str += '#' * self.__size + '\n'
+
+        return square_str[:-1]
+
+    def area(self):
+        """ Calculates the square's area
+            Returns: The area of the square
+        """
+        return (self.__size) ** 2
+
     @property
     def size(self):
+        """ Getter of __size
+        Returns:
+            The size of the square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
+        """ Setter of __size
+        Args: value (int): the size of a size of the square
+        Returns: None
+        """
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
 
     @property
     def position(self):
@@ -36,23 +64,20 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(v, int) for v in value):
+        if type(value) == tuple and len(value) == 2 and \
+            type(value[0]) == int and type(value[1]) == int and \
+                value[0] >= 0 and value[1] >= 0:
+            self.__position = value
+        else:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if any(v < 0 for v in value):
-            raise ValueError("position values must be >= 0")
-        self.__position = value
-
-    def area(self):
-        return self.size ** 2
 
     def my_print(self):
-        if self.size == 0:
+        """ Prints the square with the # character on stdout."""
+        if self.__size > 0:
+            for y in range(self.__position[1]):
+                print()
+            for x in range(self.__size):
+                print(' ' * self.__position[0], end='')
+                print('#' * self.__size)
+        else:
             print()
-            return
-
-        for _ in range(self.position[1]):
-            print()
-
-        for _ in range(self.size):
-            print(" " * self.position[0], end="")
-            print("#" * self.size)
