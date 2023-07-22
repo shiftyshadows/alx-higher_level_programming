@@ -19,6 +19,7 @@ class Square:
         """ Calculates the square's area
             Returns: The area of the square
         """
+        return (self.__size) ** 2
 
     @property
     def size(self):
