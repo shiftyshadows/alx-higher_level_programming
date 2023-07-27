@@ -8,11 +8,4 @@ import numpy as np
 
 def lazy_matrix_mul(m_a, m_b):
     """This function multiplies two matrices using numpy"""
-    # Convert input matrices to NumPy arrays
-    np_m_a = np.array(m_a)
-    np_m_b = np.array(m_b)
-
-    # Perform matrix multiplication using NumPy
-    result = np.dot(np_m_a, np_m_b)
-
-    return result.tolist()
+    return (np.matmul(m_a, m_b))
