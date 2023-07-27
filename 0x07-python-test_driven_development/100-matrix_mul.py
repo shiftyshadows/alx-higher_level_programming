@@ -18,27 +18,27 @@ def matrix_mul(m_a, m_b):
 
     for item in m_a:
         if type(item) is not list:
-            raise TypeError("Matrix must be a list of lists")
+            raise TypeError("m_b must be a list of lists")
         if len(item) == 0:
-            raise ValueError("Matrix can't be empty")
+            raise ValueError("m_a can't be empty")
         for element in item:
             if type(element) not in (int, float):
-                raise TypeError("Matrix should contain only integers/floats")
+                raise TypeError("m_a should contain only integers or floats")
     row_sizes = {len(item) for item in m_a}
     if len(row_sizes) > 1:
-        raise ValueError("Each row of the matrix must be of the same size")
+        raise ValueError("each row of the m_a must be of the same size")
 
     for item in m_b:
         if type(item) is not list:
-            raise TypeError("Matrix must be a list of lists")
+            raise TypeError("m_b must be a list of lists")
         if len(item) == 0:
-            raise ValueError("Matrix can't be empty")
+            raise ValueError("m_b can't be empty")
         for element in item:
             if type(element) not in (int, float):
-                raise TypeError("Matrix should contain only integers/floats")
+                raise TypeError("m_b should contain only integers or floats")
     row_sizes = {len(item) for item in m_b}
     if len(row_sizes) > 1:
-        raise ValueError("Each row of the matrix must be of the same size")
+        raise ValueError("each row of the m_b must be of the same size")
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
