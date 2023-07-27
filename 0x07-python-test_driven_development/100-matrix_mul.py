@@ -8,7 +8,10 @@ It supplies one function that multiplies 2 matices
 def matrix_mul(m_a, m_b):
     """ Function that multiplies 2 matrices. """
     if type(m_a) is not list or type(m_b) is not list:
-        raise TypeError("Matrix must be a list")
+        if type(m_a) is not list:
+            raise TypeError("m_a must be a list")
+        if type(m_b) is not list:
+            raise TypeError("m_b must be a list")
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
