@@ -1,5 +1,4 @@
 #include <Python.h>
-#include <stdio.h>
 
 /**
  * print_python_string - Prints Python string information.
@@ -9,20 +8,12 @@
 
 void print_python_string(PyObject *p)
 {
-	Py_ssize_t len;
-	const char *str = PyUnicode_AsUTF8AndSize(p, &len);
+	const char* utf8_str = PyUnicode_AsUTF8(p);
 
 	if (!PyUnicode_Check(p))
 	{
-		printf("Error: Invalid string object\n");
+		printf("Error: Invalid Python string\n");
 		return;
 	}
-	if (str == NULL)
-	{
-	printf("Error: Unable to decode the string\n");
-	return;
-	}
-	printf("String data:\n");
-	printf("  Length: %zd\n", len);
-	printf("  Value: %s\n", str);
+	printf("Python string: %s\n", utf8_str);
 }
