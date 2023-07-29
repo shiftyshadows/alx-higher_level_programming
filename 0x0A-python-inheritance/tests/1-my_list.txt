@@ -1,0 +1,18 @@
+        Print the list in ascending sorted order.
+
+        Example:
+        >>> my_list = MyList([4, 1, 3, 2, 5])
+        >>> my_list.print_sorted()
+        [1, 2, 3, 4, 5]
+
+        >>> another_list = MyList([10, 6, 8, 7, 9])
+        >>> another_list.print_sorted()
+        [6, 7, 8, 9, 10]
+
+        >>> empty_list = MyList([])
+        >>> empty_list.print_sorted()
+        []
+
+        >>> single_element_list = MyList([100])
+        >>> single_element_list.print_sorted()
+        [100]
