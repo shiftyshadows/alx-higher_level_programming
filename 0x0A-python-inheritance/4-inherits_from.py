@@ -4,7 +4,6 @@ This module contains the inherits_from function
 """
 
 
-
 def inherits_from(obj, a_class):
     """
        This function returns True if the object is an instance of a
