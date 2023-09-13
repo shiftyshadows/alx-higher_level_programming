@@ -5,10 +5,6 @@ const lines = [
   'JavaScript is amazing'
 ];
 
-let output = '';
-
 for (let i = 0; i < lines.length; i++) {
-  output += lines[i] + '\n';
+  console.log(lines[i]);
 }
-
-console.log(output);
