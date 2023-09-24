@@ -10,13 +10,13 @@ class Square extends OldSquare {
     super.double();
   }
 
-  charPrint (c) {
-    for (let i = 0; i < this.size; ++i) {
+  charPrint (c = 'X') {
+    for (let i = 0; i < this.height; ++i) {
       let j = 0;
-      for (; j < this.size; ++j) {
+      for (; j < this.width; ++j) {
         process.stdout.write(c);
       }
-      if (j === this.size) {
+      if (j === this.width) {
         console.log('');
       }
     }
