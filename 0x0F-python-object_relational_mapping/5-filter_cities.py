@@ -34,12 +34,15 @@ def list_cities_by_state(username, password, database_name, state_name):
         cursor = db.cursor()
         # Execute the query with a parameterized query to prevent SQL injection
         query = """SELECT cities.name, cities.id FROM
-                cities JOIN states ON states.id=cities.state_id
+                cities INNER JOIN states ON states.id=cities.state_id
                 WHERE states.name=%s ORDER BY cities.id ASC"""
         cursor.execute(query, (state_name,))
         rows = cursor.fetchall()
-        tmp = set(row[0] for row in rows)
-        print(*tmp, sep=", ")
+        lst = []
+        for row in rows:
+            if row[0] not in lst:
+                lst.append(row[0])
+        print(*lst, sep=", ")
         # Close the cursor and database connection
         cursor.close()
         db.close()
