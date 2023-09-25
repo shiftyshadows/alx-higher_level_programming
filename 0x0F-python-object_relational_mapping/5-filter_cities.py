@@ -35,7 +35,7 @@ def list_cities_by_state(username, password, database_name, state_name):
         # Execute the query with a parameterized query to prevent SQL injection
         query = """SELECT cities.name FROM
                 cities INNER JOIN states ON states.id=cities.state_id
-                WHERE states.name=%s"""
+                WHERE states.name=%s ORDER BY cities.id ASC"""
         cursor.execute(query, (state_name,))
         rows = cursor.fetchall()
         tmp = set(row[0] for row in rows)
