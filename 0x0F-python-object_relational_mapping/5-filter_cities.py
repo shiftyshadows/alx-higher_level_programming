@@ -33,7 +33,7 @@ def list_cities_by_state(username, password, database_name, state_name):
         # Create a cursor object to interact with the database
         cursor = db.cursor()
         # Execute the query with a parameterized query to prevent SQL injection
-        query ="""SELECT cities.name FROM
+        query = """SELECT cities.name FROM
                 cities INNER JOIN states ON states.id=cities.state_id
                 WHERE states.name=%s"""
         cursor.execute(query, (state_name,))
