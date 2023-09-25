@@ -33,7 +33,7 @@ def list_cities(username, password, database_name):
     cities = session.query(City).order_by(City.id).all()
     # Display the results in the specified format
     for city in cities:
-        print(f"{city.id}: {city.name} ({city.state.name})")
+        print(f"{city.id}: {city.name} -> {city.state.name}")
 
 
 if __name__ == "__main__":
