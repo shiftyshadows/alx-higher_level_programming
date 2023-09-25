@@ -2,8 +2,7 @@
 """This module defines the City class."""
 import sys
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
-from sqlalchemy.orm import relationship
-from relationship_state import Base
+from relationship_state import Base, State
 
 
 class City(Base):
@@ -24,7 +23,6 @@ class City(Base):
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    state = relationship("State", back_populates="cities")
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
