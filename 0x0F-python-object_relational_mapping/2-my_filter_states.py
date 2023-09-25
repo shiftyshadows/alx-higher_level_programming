@@ -32,7 +32,7 @@ def search_states_by_name(username, password, database_name, state_name):
         # Create a cursor object to interact with the database
         cursor = db.cursor()
         # Execute the query to fetch states matching the provided state name
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
         cursor.execute(query, (state_name,))
         # Fetch all rows from the result
         matching_states = cursor.fetchall()
