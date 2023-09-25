@@ -31,7 +31,8 @@ def list_cities(username, password, database_name):
         # Create a cursor object to interact with the database
         cursor = db.cursor()
         # Execute the SQL query to fetch all cities and sort them by cities.id
-        cursor.execute("SELECT * FROM cities ORDER BY id ASC")
+        cursor.execute("SELECT cities.id, cities.name, states.name FROM \
+            cities INNER JOIN states ON states.id=cities.state_id")
         # Fetch all rows from the result
         cities = cursor.fetchall()
         # Print the results in the desired format
