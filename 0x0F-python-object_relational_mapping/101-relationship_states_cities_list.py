@@ -31,7 +31,8 @@ def list_states_and_cities(username, password, database_name):
     Session = sessionmaker(bind=engine)
     session = Session()
     # Query all State objects and their associated City objects with sorting
-    states_and_cities = session.query(State).order_by(State.id).all()
+    states_and_cities = session.query(State).outerjoin(
+        City).order_by(State.id, City.id).all()
 
     # Display the results in the specified format
     for state in states_and_cities:
