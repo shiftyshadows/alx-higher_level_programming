@@ -16,6 +16,6 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) {
     console.error('Error reading the file:', err);
   } else {
-    console.log('File content:\n', data);
+    console.log(data);
   }
 });
